@@ -24,6 +24,7 @@
           "^build"
         ],
         "outputs": [
+          "build/**",
           "dist/**",
           ".next/**"
         ]
@@ -35,7 +36,7 @@
         "cache": false
       },
       "test": {
-        "cache": false
+        "outputs": []
       }
     }
   },
