@@ -1,5 +1,12 @@
 {
-  "extends": "tsconfig/react-library.json",
+  "extends": "./tsconfig.base.json",
+  "display": "React Library",
+  "compilerOptions": {
+    "lib": ["ES2015"],
+    "module": "ESNext",
+    "target": "ES6",
+    "jsx": "react-jsx"
+  },
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }
