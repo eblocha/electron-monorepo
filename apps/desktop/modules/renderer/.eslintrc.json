@@ -1,0 +1,12 @@
+{
+  "env": {
+    "browser": true,
+    "node": false
+  },
+  "extends": ["react-app", "react-app/jest"],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  }
+}

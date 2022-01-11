@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "sourceMap": false,
+    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "strict": true,
+    "isolatedModules": true,
+
+    // Don't automatically include anything.
+    // Only include `@types` packages that we need to import.
+    "types": [],
+
+    "baseUrl": ".",
+    "paths": {
+      "/@/*": ["./src/*"],
+      "/@shared": ["../shared/src"]
+    },
+    "lib": ["ESNext", "dom", "dom.iterable"],
+    "jsx": "react-jsx"
+  },
+
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "types/**/*.d.ts",
+    "../../types/**/*.d.ts",
+    "../preload/src/index.ts",
+    "./setupTests.ts"
+  ]
+}
