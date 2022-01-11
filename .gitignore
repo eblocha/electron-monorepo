@@ -12,11 +12,14 @@ coverage
 .next/
 out/
 build
-.swc
+dist
 
 # misc
 .DS_Store
 *.pem
+thumbs.db
+.eslintcache
+.swc
 
 # debug
 npm-debug.log*
@@ -29,6 +32,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+*.local
 
 # turbo
 .turbo
