@@ -10,9 +10,8 @@
  * @see https://vitejs.dev/guide/env-and-mode.html#env-files Vite Env Variables Doc
  */
 interface ImportMetaEnv {
-
   /**
    * The value of the variable is set in scripts/watch.js and depend on packages/main/vite.config.js
    */
-  VITE_DEV_SERVER_URL: undefined | string;
+  VITE_DEV_SERVER_URL: undefined | string
 }

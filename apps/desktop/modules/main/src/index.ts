@@ -1,31 +1,31 @@
-import { app, ipcMain } from 'electron';
-import { callbacks } from './ipc';
-import './security-restrictions';
-import { restoreOrCreateWindow } from '/@/mainWindow';
+import { app, ipcMain } from 'electron'
+import { callbacks } from './ipc'
+import './security-restrictions'
+import { restoreOrCreateWindow } from '/@/mainWindow'
 
 /**
  * Prevent multiple instances
  */
-const isSingleInstance = app.requestSingleInstanceLock();
+const isSingleInstance = app.requestSingleInstanceLock()
 if (!isSingleInstance) {
-  app.quit();
-  process.exit(0);
+  app.quit()
+  process.exit(0)
 }
-app.on('second-instance', restoreOrCreateWindow);
+app.on('second-instance', restoreOrCreateWindow)
 
 /**
  * Disable Hardware Acceleration for more power-save
  */
-app.disableHardwareAcceleration();
+app.disableHardwareAcceleration()
 
 /**
  * Shout down background process if all windows was closed
  */
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit();
+    app.quit()
   }
-});
+})
 
 /**
  * Create app window when background process be ready
@@ -33,7 +33,7 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(restoreOrCreateWindow)
-  .catch(e => console.error('Failed create window:', e));
+  .catch(e => console.error('Failed create window:', e))
 
 /**
  * Install React.js or some other devtools in development mode only
@@ -49,7 +49,7 @@ if (import.meta.env.DEV) {
         },
       }),
     )
-    .catch(e => console.error('Failed install extension:', e));
+    .catch(e => console.error('Failed install extension:', e))
 }
 
 /**
@@ -60,10 +60,10 @@ if (import.meta.env.PROD) {
     .whenReady()
     .then(() => import('electron-updater'))
     .then(({ autoUpdater }) => autoUpdater.checkForUpdatesAndNotify())
-    .catch(e => console.error('Failed check updates:', e));
+    .catch(e => console.error('Failed check updates:', e))
 }
 
 // IPC ------------------------------------------------------------------------
 Object.entries(callbacks).forEach(([channel, method]) => {
-  ipcMain.handle(channel, method);
-});
+  ipcMain.handle(channel, method)
+})

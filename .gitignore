@@ -36,3 +36,6 @@ yarn-error.log*
 # docs
 .docusaurus
 .cache-loader
+
+# editors
+.vscode

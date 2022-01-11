@@ -19,7 +19,7 @@
     "test:preload": "vitest run -r modules/preload --passWithNoTests",
     "test:renderer": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --config modules/renderer/jest.config.js --passWithNoTests --rootDir modules/renderer",
     "dev": "node scripts/watch.js",
-    "lint": "eslint . --ext js,ts,tsx",
+    "lint": "eslint . --ext ts,tsx",
     "typecheck:main": "tsc --noEmit -p modules/main/tsconfig.json",
     "typecheck:preload": "tsc --noEmit -p modules/preload/tsconfig.json",
     "typecheck:renderer": "tsc --noEmit -p modules/renderer/tsconfig.json",
@@ -50,7 +50,6 @@
     "jest": "^27.4.7",
     "jest-matchmedia-mock": "^1.1.0",
     "jest-watch-typeahead": "^1.0.0",
-    "nano-staged": "0.5.0",
     "playwright": "1.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -61,6 +60,7 @@
     "vitest": "^0.0.139"
   },
   "dependencies": {
+    "core": "*",
     "electron-updater": "4.6.5"
   }
 }

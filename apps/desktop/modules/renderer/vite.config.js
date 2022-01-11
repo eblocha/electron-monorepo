@@ -1,12 +1,12 @@
 /* eslint-env node */
 
-import { chrome } from '../../.electron-vendors.cache.json';
-import { join } from 'path';
-import { builtinModules } from 'module';
-import react from '@vitejs/plugin-react';
-import envCompatible from 'vite-plugin-env-compatible';
+import { chrome } from '../../.electron-vendors.cache.json'
+import { join } from 'path'
+import { builtinModules } from 'module'
+import react from '@vitejs/plugin-react'
+import envCompatible from 'vite-plugin-env-compatible'
 
-const PACKAGE_ROOT = __dirname;
+const PACKAGE_ROOT = __dirname
 
 /**
  * @type {import('vite').UserConfig}
@@ -27,7 +27,7 @@ const config = {
     fs: {
       strict: true,
     },
-    port: '3002'
+    port: '3002',
   },
   build: {
     sourcemap: true,
@@ -40,6 +40,6 @@ const config = {
     emptyOutDir: true,
     brotliSize: false,
   },
-};
+}
 
-export default config;
+export default config

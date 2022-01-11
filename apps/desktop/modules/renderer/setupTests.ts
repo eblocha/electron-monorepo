@@ -1,7 +1,7 @@
-import '@testing-library/jest-dom';
-import { jest } from '@jest/globals';
+import '@testing-library/jest-dom'
+import { jest } from '@jest/globals'
 
-const subscriptionMock = () => () => {};
+const subscriptionMock = () => () => {}
 
 const mockedAPI: typeof window.main = {
   lib: {
@@ -16,8 +16,8 @@ const mockedAPI: typeof window.main = {
     onUnMaximized: jest.fn(subscriptionMock),
     restore: jest.fn(),
   },
-};
+}
 
 beforeAll(() => {
-  window.main = mockedAPI;
-});
+  window.main = mockedAPI
+})
