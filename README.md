@@ -1,6 +1,6 @@
-# Turborepo starter
+# Turborepo Electron Starter
 
-This is an official Yarn v1 starter turborepo.
+This is a Yarn v1 starter turborepo for Electron.
 
 ## What's inside?
 
@@ -8,9 +8,12 @@ This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package ma
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
+- `desktop`: an [Electron](https://www.electronjs.org/) desktop application
+  - This is based on a [vite template](https://github.com/cawa-93/vite-electron-builder) for Electron, but configured for React instead of Vue
+- `docs`: a [Docusaurus](https://docusaurus.io/) app for documenting the desktop app
+- `web`: a [Next.js](https://nextjs.org) app
+- `core`: a "core functionality" library that the desktop application uses as a backend
+- `ui`: a stub React component library shared by both `web`, `docs`, and `desktop` applications
 - `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
@@ -43,7 +46,6 @@ yarn run build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 yarn run dev
 ```
 
@@ -54,7 +56,6 @@ Turborepo can use a technique known as [Remote Caching (Beta)](https://turborepo
 By default, Turborepo will cache locally. To enable Remote Caching (Beta) you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
 ```
-cd my-turborepo
 npx turbo login
 ```
 

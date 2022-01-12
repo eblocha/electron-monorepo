@@ -1,4 +1,4 @@
-import { sha256 } from '/@/lib'
+import { sha256 } from 'core'
 import type { CryptoAPI, Callbacks } from '/@shared'
 import { Channels } from '/@shared'
 
