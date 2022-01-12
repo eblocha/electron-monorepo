@@ -14,6 +14,7 @@ This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package ma
 - `web`: a [Next.js](https://nextjs.org) app
 - `core`: a "core functionality" library that the desktop application uses as a backend
 - `ui`: a stub React component library shared by both `web`, `docs`, and `desktop` applications
+  - This includes `storybook` for prototyping, and `jest` for testing
 - `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
@@ -37,7 +38,6 @@ This repository is used in the `npx create-turbo` command, and selected when cho
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 yarn run build
 ```
 
