@@ -1,0 +1,27 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# next.js
+.next/
+out/
+build
+dist
+
+# misc
+.DS_Store
+*.pem
+thumbs.db
+.eslintcache
+.swc
+
+# turbo
+.turbo
+
+# docs
+.docusaurus
+.cache-loader

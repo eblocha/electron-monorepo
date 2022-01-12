@@ -1,5 +1,5 @@
-const fs = require('fs');
-const config = JSON.parse(fs.readFileSync(`${__dirname}/.swcrc`, 'utf-8'));
+const fs = require('fs')
+const config = JSON.parse(fs.readFileSync(`${__dirname}/.swcrc`, 'utf-8'))
 
 module.exports = {
   roots: ['<rootDir>'],
@@ -24,4 +24,4 @@ module.exports = {
     '^/@/(.*)$': '<rootDir>/src/$1',
   },
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
-};
+}
