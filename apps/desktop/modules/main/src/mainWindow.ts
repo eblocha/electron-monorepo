@@ -1,8 +1,8 @@
-import { BrowserWindow } from 'electron'
-import { join } from 'path'
-import { URL } from 'url'
-import { createSender } from './ipc'
-import { Channels } from '/@shared'
+import { BrowserWindow } from 'electron';
+import { join } from 'path';
+import { URL } from 'url';
+import { createSender } from './ipc';
+import { Channels } from '/@shared';
 
 async function createWindow() {
   const browserWindow = new BrowserWindow({
@@ -12,7 +12,7 @@ async function createWindow() {
       webviewTag: false, // The webview tag is not recommended. Consider alternatives like iframe or Electron's BrowserView. https://www.electronjs.org/docs/latest/api/webview-tag#warning
       preload: join(__dirname, '../../preload/dist/index.cjs'),
     },
-  })
+  });
 
   /**
    * If you install `show: true` then it can cause issues when trying to close the window.
@@ -21,12 +21,12 @@ async function createWindow() {
    * @see https://github.com/electron/electron/issues/25012
    */
   browserWindow.on('ready-to-show', () => {
-    browserWindow?.show()
+    browserWindow?.show();
 
     if (import.meta.env.DEV) {
-      browserWindow?.webContents.openDevTools()
+      browserWindow?.webContents.openDevTools();
     }
-  })
+  });
 
   /**
    * URL for main window.
@@ -36,38 +36,38 @@ async function createWindow() {
   const pageUrl =
     import.meta.env.DEV && import.meta.env.VITE_DEV_SERVER_URL !== undefined
       ? import.meta.env.VITE_DEV_SERVER_URL
-      : new URL('../renderer/dist/index.html', 'file://' + __dirname).toString()
+      : new URL('../renderer/dist/index.html', 'file://' + __dirname).toString();
 
-  await browserWindow.loadURL(pageUrl)
+  await browserWindow.loadURL(pageUrl);
 
-  return browserWindow
+  return browserWindow;
 }
 
 /**
  * Restore existing BrowserWindow or Create new BrowserWindow
  */
 export async function restoreOrCreateWindow() {
-  let window = BrowserWindow.getAllWindows().find(w => !w.isDestroyed())
+  let window = BrowserWindow.getAllWindows().find(w => !w.isDestroyed());
 
   if (window === undefined) {
-    window = await createWindow()
+    window = await createWindow();
   }
 
   // Ensure we send event notifications to subscribers
-  const notifyMaximized = createSender(window.webContents, Channels.MAXIMIZED)
-  const notifyUnMaximized = createSender(window.webContents, Channels.UNMAXIMIZED)
+  const notifyMaximized = createSender(window.webContents, Channels.MAXIMIZED);
+  const notifyUnMaximized = createSender(window.webContents, Channels.UNMAXIMIZED);
 
   window.on('maximize', () => {
-    notifyMaximized()
-  })
+    notifyMaximized();
+  });
 
   window.on('unmaximize', () => {
-    notifyUnMaximized()
-  })
+    notifyUnMaximized();
+  });
 
   if (window.isMinimized()) {
-    window.restore()
+    window.restore();
   }
 
-  window.focus()
+  window.focus();
 }

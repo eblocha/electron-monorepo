@@ -1,6 +1,7 @@
-const restrictedGlobals = require('confusing-browser-globals')
+const restrictedGlobals = require('confusing-browser-globals');
 
 module.exports = {
+  extends: ['prettier', 'plugin:prettier/recommended'],
   env: {
     browser: true,
     commonjs: true,
@@ -85,6 +86,7 @@ module.exports = {
   // NOTE: When adding rules here, you need to make sure they are compatible with
   // `typescript-eslint`, as some rules such as `no-array-constructor` aren't compatible.
   rules: {
+    'prettier/prettier': 'warn',
     // http://eslint.org/docs/rules/
     'array-callback-return': 'warn',
     'default-case': ['warn', { commentPattern: '^no default$' }],
@@ -222,4 +224,4 @@ module.exports = {
     'import/no-anonymous-default-export': 'warn',
     'import/no-webpack-loader-syntax': 'error',
   },
-}
+};

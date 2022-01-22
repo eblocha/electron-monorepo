@@ -1,5 +1,5 @@
-import { ipcRenderer } from 'electron'
-import type { Subscriptions, CombinedAPI, Invoker } from '/@shared'
+import { ipcRenderer } from 'electron';
+import type { Subscriptions, CombinedAPI, Invoker } from '/@shared';
 
 /**
  * Expose a function to subscribe to events from the main process
@@ -11,14 +11,14 @@ export const createSubscriber = <C extends keyof Subscriptions>(channel: C) => {
     const listener = (event: Electron.IpcRendererEvent, ...args: unknown[]) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      fn(...args)
-    }
-    ipcRenderer.on(channel, listener)
+      fn(...args);
+    };
+    ipcRenderer.on(channel, listener);
     return () => {
-      ipcRenderer.removeListener(channel, listener)
-    }
-  }
-}
+      ipcRenderer.removeListener(channel, listener);
+    };
+  };
+};
 
 /**
  * Expose a method in the renderer to invoke a callback on the main process
@@ -26,5 +26,5 @@ export const createSubscriber = <C extends keyof Subscriptions>(channel: C) => {
  * @returns A method to expose in the renderer to invoke the given channel
  */
 export const createInvoker = <Channel extends keyof CombinedAPI>(channel: Channel): Invoker<Channel> => {
-  return (...args: unknown[]) => ipcRenderer.invoke(channel, ...args)
-}
+  return (...args: unknown[]) => ipcRenderer.invoke(channel, ...args);
+};

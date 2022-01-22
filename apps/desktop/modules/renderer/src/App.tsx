@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
-import logo from '../assets/logo.svg'
-import './App.css'
+import { useEffect } from 'react';
+import logo from '../assets/logo.svg';
+import './App.css';
 
 const App = () => {
   useEffect(() => {
-    window.main.title.maximize()
-  }, [])
+    window.main.title.maximize();
+  }, []);
 
   return (
     <div className="App" id="app">
@@ -19,7 +19,7 @@ const App = () => {
         </a>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
