@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/tsconfig.base.json",
+  "extends": "@electron-monorepo/config/tsconfig/tsconfig.base.json",
   "display": "React Library",
   "compilerOptions": {
     "lib": ["ES2015"],

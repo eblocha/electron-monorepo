@@ -1,5 +1,5 @@
 {
-  "name": "desktop",
+  "name": "@electron-monorepo/desktop",
   "version": "0.0.0",
   "private": true,
   "engines": {
@@ -38,6 +38,7 @@
     "@typescript-eslint/parser": "^5.9.0",
     "@vitejs/plugin-react": "^1.1.4",
     "cross-env": "7.0.3",
+    "@electron-monorepo/config": "*",
     "electron": "16.0.6",
     "electron-builder": "22.14.5",
     "electron-devtools-installer": "3.2.0",
@@ -60,7 +61,7 @@
     "vitest": "^0.0.139"
   },
   "dependencies": {
-    "core": "*",
+    "@electron-monorepo/core": "*",
     "electron-updater": "4.6.5"
   }
 }

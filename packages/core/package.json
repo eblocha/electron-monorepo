@@ -1,6 +1,9 @@
 {
-  "name": "core",
+  "name": "@electron-monorepo/core",
   "version": "0.0.0",
   "private": true,
-  "main": "./src/index.ts"
+  "main": "./src/index.ts",
+  "devDependencies": {
+    "@electron-monorepo/config": "*"
+  }
 }

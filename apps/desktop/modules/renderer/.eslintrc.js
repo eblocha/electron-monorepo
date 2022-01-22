@@ -1,3 +1,4 @@
 module.exports = {
-  extends: ['react-app', 'react-app/jest'],
-}
+  root: true,
+  extends: [require.resolve('@electron-monorepo/config/eslint/eslint.react.js')],
+};

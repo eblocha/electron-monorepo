@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['next', 'prettier'],
+  extends: [require.resolve('./eslint.react.js'), 'next'],
   settings: {
     next: {
       rootDir: ['apps/*/', 'packages/*/'],
