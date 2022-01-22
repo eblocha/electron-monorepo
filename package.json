@@ -7,38 +7,16 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
+    "build": "nx run-many --target=build --all",
+    "lint": "nx run-many --target=lint --all",
     "format": "prettier --write \"**/*.{ts,tsx,md,js,jsx}\""
   },
   "devDependencies": {
+    "@nrwl/cli": "latest",
+    "@nrwl/tao": "latest",
+    "@nrwl/workspace": "latest",
     "prettier": "^2.5.1",
-    "turbo": "latest"
-  },
-  "turbo": {
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          "build/**",
-          "dist/**",
-          ".next/**"
-        ]
-      },
-      "lint": {
-        "outputs": []
-      },
-      "dev": {
-        "cache": false
-      },
-      "test": {
-        "outputs": []
-      }
-    }
+    "typescript": "4.2.4"
   },
   "engines": {
     "npm": ">=7.0.0",
