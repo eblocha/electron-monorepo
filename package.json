@@ -9,6 +9,7 @@
   "scripts": {
     "build": "nx run-many --target=build --all",
     "lint": "nx run-many --target=lint --all",
+    "test": "nx run-many --target=test --all",
     "format": "prettier --write \"**/*.{ts,tsx,md,js,jsx}\""
   },
   "devDependencies": {
