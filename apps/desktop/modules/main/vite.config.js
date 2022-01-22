@@ -1,8 +1,8 @@
-import { node } from '../../.electron-vendors.cache.json'
-import { join } from 'path'
-import { builtinModules } from 'module'
+import { node } from '../../.electron-vendors.cache.json';
+import { join } from 'path';
+import { builtinModules } from 'module';
 
-const PACKAGE_ROOT = __dirname
+const PACKAGE_ROOT = __dirname;
 
 /**
  * @type {import('vite').UserConfig}
@@ -37,6 +37,6 @@ const config = {
     emptyOutDir: true,
     brotliSize: false,
   },
-}
+};
 
-export default config
+export default config;
