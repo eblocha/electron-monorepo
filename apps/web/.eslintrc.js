@@ -1,1 +1,1 @@
-module.exports = require('config/eslint/eslint.next')
+module.exports = require('@electron-monorepo/config/eslint/eslint.next');
