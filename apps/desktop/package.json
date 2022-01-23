@@ -71,7 +71,25 @@
           }
         ]
       },
+      "build:main": {
+        "outputs": [
+          "app/desktop/modules/main/dist"
+        ]
+      },
+      "build:preload": {
+        "outputs": [
+          "app/desktop/modules/preload/dist"
+        ]
+      },
+      "build:renderer": {
+        "outputs": [
+          "app/desktop/modules/renderer/dist"
+        ]
+      },
       "compile": {
+        "outputs": [
+          "app/desktop/dist"
+        ],
         "dependsOn": [
           {
             "target": "build",
