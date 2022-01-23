@@ -8,13 +8,13 @@
   },
   "main": "modules/main/dist/index.cjs",
   "scripts": {
-    "build": "yarn build:main && yarn build:preload && yarn build:renderer",
+    "build": "node scripts/no-op.js",
     "build:main": "cd ./modules/main && vite build",
     "build:preload": "cd ./modules/preload && vite build",
     "build:renderer": "cd ./modules/renderer && vite build",
-    "compile": "cross-env MODE=production yarn build && electron-builder build --config .electron-builder.config.js --dir --config.asar=false && node scripts/getSize.js",
-    "test": "yarn test:main && yarn test:preload && yarn test:renderer && yarn test:e2e",
-    "test:e2e": "yarn build && vitest run",
+    "compile": "electron-builder build --config .electron-builder.config.js --dir --config.asar=false && node scripts/getSize.js",
+    "test": "node scripts/no-op.js",
+    "test:e2e": "vitest run",
     "test:main": "vitest run -r modules/main --passWithNoTests",
     "test:preload": "vitest run -r modules/preload --passWithNoTests",
     "test:renderer": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --config modules/renderer/jest.config.js --passWithNoTests --rootDir modules/renderer",
@@ -24,6 +24,62 @@
     "typecheck:preload": "tsc --noEmit -p modules/preload/tsconfig.json",
     "typecheck:renderer": "tsc --noEmit -p modules/renderer/tsconfig.json",
     "typecheck": "yarn typecheck:main && yarn typecheck:preload && yarn typecheck:renderer"
+  },
+  "nx": {
+    "targets": {
+      "test:e2e": {
+        "dependsOn": [
+          {
+            "target": "build",
+            "projects": "self"
+          }
+        ]
+      },
+      "test": {
+        "dependsOn": [
+          {
+            "target": "test:main",
+            "projects": "self"
+          },
+          {
+            "target": "test:preload",
+            "projects": "self"
+          },
+          {
+            "target": "test:renderer",
+            "projects": "self"
+          },
+          {
+            "target": "test:e2e",
+            "projects": "self"
+          }
+        ]
+      },
+      "build": {
+        "dependsOn": [
+          {
+            "target": "build:main",
+            "projects": "self"
+          },
+          {
+            "target": "build:renderer",
+            "projects": "self"
+          },
+          {
+            "target": "build:preload",
+            "projects": "self"
+          }
+        ]
+      },
+      "compile": {
+        "dependsOn": [
+          {
+            "target": "build",
+            "projects": "self"
+          }
+        ]
+      }
+    }
   },
   "devDependencies": {
     "@swc/core": "^1.2.127",
