@@ -12,9 +12,18 @@
           "build:renderer",
           "compile",
           "test",
+          "test:main",
+          "test:preload",
+          "test:renderer",
+          "test:e2e",
           "lint",
           "package",
-          "prepare"
+          "prepare",
+          "typecheck",
+          "typecheck:main",
+          "typecheck:preload",
+          "typecheck:renderer",
+          "typecheck:shared"
         ]
       }
     }
