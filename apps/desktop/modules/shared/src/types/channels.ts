@@ -9,4 +9,5 @@ export enum Channels {
   IS_MAXIMIZED = 'is-maximized',
   // Define other ipc channels here
   SHA256 = 'sha256',
+  LOG = 'log',
 }

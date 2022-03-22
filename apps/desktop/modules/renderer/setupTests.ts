@@ -16,6 +16,7 @@ const mockedAPI: typeof window.main = {
     onUnMaximized: jest.fn(subscriptionMock),
     restore: jest.fn(),
   },
+  log: jest.fn(),
 };
 
 beforeAll(() => {

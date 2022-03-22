@@ -1,5 +1,5 @@
 import { app, ipcMain } from 'electron';
-import { callbacks } from './ipc';
+import { callbacks, eventListeners } from './ipc';
 import './security-restrictions';
 import { restoreOrCreateWindow } from '/@/mainWindow';
 
@@ -66,4 +66,8 @@ if (import.meta.env.PROD) {
 // IPC ------------------------------------------------------------------------
 Object.entries(callbacks).forEach(([channel, method]) => {
   ipcMain.handle(channel, method);
+});
+
+Object.entries(eventListeners).forEach(([channel, listener]) => {
+  ipcMain.on(channel, listener);
 });

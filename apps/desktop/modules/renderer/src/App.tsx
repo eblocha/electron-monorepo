@@ -5,6 +5,10 @@ import './App.css';
 const App = () => {
   useEffect(() => {
     window.main.title.maximize();
+    window.main.log({
+      level: 'debug',
+      message: 'App rendered!',
+    });
   }, []);
 
   return (

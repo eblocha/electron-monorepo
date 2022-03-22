@@ -3,7 +3,7 @@
  */
 
 import { contextBridge } from 'electron';
-import { createInvoker, createSubscriber } from './ipc';
+import { createInvoker, createSender, createSubscriber } from './ipc';
 import { Channels } from '/@shared';
 import { sha256sum } from '/@/sha256sum';
 
@@ -36,6 +36,7 @@ export const api = {
   lib: {
     sha256sum: createInvoker(Channels.SHA256),
   },
+  log: createSender(Channels.LOG),
 };
 
 contextBridge.exposeInMainWorld('main', api);

@@ -1,4 +1,4 @@
-import type { Subscriptions } from '/@shared';
+import type { RendererEvents } from '/@shared';
 
 /**
  * Send events to subscribers in a type-safe way
@@ -6,6 +6,6 @@ import type { Subscriptions } from '/@shared';
  * @param channel The channel to send the event on
  * @returns A function to send the events to the webcontents
  */
-export const createSender = <C extends keyof Subscriptions>(wc: Electron.WebContents, channel: C) => {
-  return (...args: Parameters<Subscriptions[C]>) => wc.send(channel, ...args);
+export const createSender = <C extends keyof RendererEvents>(wc: Electron.WebContents, channel: C) => {
+  return (...args: Parameters<RendererEvents[C]>) => wc.send(channel, ...args);
 };
