@@ -100,6 +100,8 @@
     }
   },
   "devDependencies": {
+    "@electron-monorepo/config": "*",
+    "@electron-monorepo/core": "*",
     "@swc/core": "^1.2.127",
     "@swc/jest": "^0.2.15",
     "@testing-library/jest-dom": "^5.16.1",
@@ -112,8 +114,6 @@
     "@typescript-eslint/parser": "^5.9.0",
     "@vitejs/plugin-react": "^1.1.4",
     "cross-env": "7.0.3",
-    "@electron-monorepo/config": "*",
-    "@electron-monorepo/core": "*",
     "electron": "16.0.6",
     "electron-builder": "22.14.5",
     "electron-devtools-installer": "3.2.0",
@@ -133,7 +133,7 @@
     "typescript": "4.5.4",
     "vite": "2.7.10",
     "vite-plugin-env-compatible": "^1.1.1",
-    "vitest": "^0.0.139"
+    "vitest": "^0.10.5"
   },
   "dependencies": {
     "electron-updater": "4.6.5"
